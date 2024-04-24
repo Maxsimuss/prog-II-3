@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veikals</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="title">Veikals</a>
+        {% if not user: %}
+        <a href="/register">Pieslēgties</a>
+        {% else %}
+        <a href="/profile">Profils</a>
+        {% endif %}
+    </header>
+    <div class="w80">
+        <form action="register" method="post">
+            <div class="container">
+                <input type="hidden" name="redirect" value="{{ redirect }}">
+                <input type="text" placeholder="Vārds" name="name">
+                <input type="text" placeholder="Uzvārds" name="surname">
+                <input type="email" placeholder="E-pasts" name="email">
+                <input type="tel" placeholder="Tālruņa numurs" name="phone_number">
+                <div class="split">
+                    <input type="password" placeholder="Parole" name="password" id="password">
+                    <input type="password" placeholder="Atkārtojiet paroli" id="confirmPassword">
+                </div>
+                <input type="submit" value="Reģistrēties" id="submit" disabled="true">
+                <script src="/static/confirm-password.js"></script>
+            </div>
+        </form>
+        <a href="/login" class="link">Pieslēgties</a>
+    </div>
+</body>
+
+</html>

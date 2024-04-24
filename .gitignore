@@ -1,1 +1,3 @@
-/app
+app/myenv/
+app/static/upload/*
+app/flask.db

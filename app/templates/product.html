@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veikals</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="title">Veikals</a>
+        {% if not user: %}
+        <a href="/register">Pieslēgties</a>
+        {% else %}
+        <a href="/profile">Profils</a>
+        {% endif %}
+    </header>
+    <div class="product">
+        <img src="{{ product[3] }}" alt="">
+        <h1>{{ product[0] }}</h1>
+        <h3>{{ product[2] }} Eur</h3>
+        <p>{{ product[1] }}</p>
+        <button onclick="location.href='order?id={{ product[4] }}'">Sazinieties ar pārdevēju</button>
+    </div>
+</body>
+
+</html>

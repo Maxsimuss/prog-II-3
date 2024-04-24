@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veikals</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="title">Veikals</a>
+        {% if not user: %}
+        <a href="/register">Pieslēgties</a>
+        {% else %}
+        <a href="/profile">Profils</a>
+        {% endif %}
+    </header>
+    <h1>Paldies, pārdevējs sazināsies ar jums SMS vai e-pastā.</h1>
+    <center>
+        <a href="/">Atgriezties uz sākumlapu</a>
+    </center>
+</body>
+
+</html>

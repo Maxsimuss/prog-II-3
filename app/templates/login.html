@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veikals</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="title">Veikals</a>
+        {% if not user: %}
+        <a href="/register">Pieslēgties</a>
+        {% else %}
+        <a href="/profile">Profils</a>
+        {% endif %}
+    </header>
+    <div class="w80">
+        <form action="login" method="post">
+            <div class="container">
+                <input type="email" placeholder="E-pasts" name="email">
+                <input type="password" placeholder="Parole" name="password">
+                <input type="submit" value="Pieslēgties">
+            </div>
+        </form>
+        <a href="/register" class="link">Reģistrēties</a>
+    </div>
+</body>
+
+</html>

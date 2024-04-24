@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veikals</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="title">Veikals</a>
+        {% if not user: %}
+        <a href="/register">Pieslēgties</a>
+        {% else %}
+        <a href="/profile">Profils</a>
+        {% endif %}
+    </header>
+    <div class="w80">
+        <form action="edit_product" method="post" enctype="multipart/form-data">
+            <div class="container">
+                <input type="hidden" name="id" value="{{ product[0] }}">
+                <input type="text" placeholder="Nosaukums" name="name" value="{{ product[1] }}">
+                <input type="number" placeholder="Cena" step=".01" name="cost" value="{{ product[4] }}">
+                <input type="text" placeholder="Apraksts" name="description" value="{{ product[2] }}">
+                <label>Izvēlieties attēlu:</label>
+                <input type="file" name="image" accept="image/png, image/jpeg">
+                <input type="submit" value="Saglabat">
+            </div>
+        </form>
+        <a href="/admin" class="link">Pārdevēja skats</a>
+    </div>
+</body>
+
+</html>

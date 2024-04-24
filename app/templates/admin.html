@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veikals</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <header>
+        <a href="/" class="title">Veikals</a>
+        {% if not user: %}
+        <a href="/register">Pieslēgties</a>
+        {% else %}
+        <a href="/profile">Profils</a>
+        {% endif %}
+    </header>
+    <h3>Aktīvie pasūtījumi</h3>
+    <div class="block">
+        {% if not orders: %}
+        <h2>Pašlaik nav aktīvu pasūtījumu</h2>
+        {% endif %}
+        {% for order in orders %}
+        <div class="row">
+            <label>{{ order[1] }} {{ order[2] }}; e-pasts: {{ order[4] }}; talr: {{ order[5] }} - {{ order[3] }}</label>
+            <a href="remove_order?id={{ order[0] }}">Dzēst</a>
+        </div>
+        {% endfor %}
+    </div>
+    <h3>Preces</h3>
+    <div class="block">
+        {% for product in products %}
+        <div class="row">
+            <label>{{ product[0] }}, {{ product[1] }} Eur</label>
+            <a href="edit_product?id={{ product[2] }}">Rediģēt</a>
+            <a href="remove?id={{ product[2] }}">Dzēst</a>
+        </div>
+        {% endfor %}
+        <div class="row">
+            <center>
+                <a class="button" href="edit_product?id=-1">Jauna prece</a>
+            </center>
+        </div>
+    </div>
+</body>
+
+</html>
